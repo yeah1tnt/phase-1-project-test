@@ -1,9 +1,7 @@
 h1 {
-    color:blue;
+    color:black;
+}
+h2 {
+    color:black
 }
 
-#instruction {
-    background-color:rgb(252, 200, 122);
-    width:500px;
-    height:50px;
-}
