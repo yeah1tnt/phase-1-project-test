@@ -18,10 +18,20 @@ function allButton(){
     let btn_1 = document.getElementById("btn");
     let cat_img = document.getElementById("catPic")
     btn_1.addEventListener('click', function (e) {
-        let catRandom = catErr[Math.floor(Math.random()*catErr.length)];
-        cat_img.setAttribute("src",`https://http.cat/${catRandom}`);
+        const catRandom = catErr[Math.floor(Math.random()*catErr.length)];
+        const catIndex = catErr.findIndex(function (e){
+            return e == catRandom;
+        })
+        console.log(catIndex);  //return index
+        console.log(catRandom); //return cat error of that index
+
+        //Check if URL are present, if it is, then it will use that url picture
+        if(catUrl[catIndex] === ""){
+            cat_img.setAttribute("src",`https://http.cat/${catRandom}`);
+        }else{
+            cat_img.setAttribute("src",catUrl[catIndex]);
+        }
         cat_img.setAttribute('alt',`${catRandom}`);
-        console.log("button pressed");
     })
 
     let btn_2 = document.getElementById("submit");
