@@ -40,6 +40,36 @@
       "content": "Accepted",
       "url": "",
       "id": 7
+    },
+    {
+      "error": "203",
+      "content": "Non-Authoritative Information",
+      "url": "",
+      "id": 8
+    },
+    {
+      "error": "204",
+      "content": "No Content",
+      "url": "",
+      "id": 9
+    },
+    {
+      "error": "206",
+      "content": "Partial Content",
+      "url": "",
+      "id": 10
+    },
+    {
+      "error": "207",
+      "content": "Multi-Status",
+      "url": "",
+      "id": 11
+    },
+    {
+      "error": "300",
+      "content": "Multiple Choices",
+      "url": "",
+      "id": 12
     }
   ]
 }

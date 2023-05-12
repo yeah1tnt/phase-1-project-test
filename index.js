@@ -1,4 +1,6 @@
-let catArr = [];
+let catErr =[];
+let catCon =[];
+let catUrl =[];
 function mouseOver(e){
     e.innerHTML = "Click on the button for random cat picture";
 }
@@ -9,14 +11,16 @@ function mouseOvernot(e){
 
 document.addEventListener("DOMContentLoaded", function () {
     allButton();
-})
+    
+    })
 
 function allButton(){
     let btn_1 = document.getElementById("btn");
     let cat_img = document.getElementById("catPic")
     btn_1.addEventListener('click', function (e) {
-        cat_img.setAttribute("src","https://http.cat/101");
-        cat_img.setAttribute('alt','101');
+        let catRandom = catErr[Math.floor(Math.random()*catErr.length)];
+        cat_img.setAttribute("src",`https://http.cat/${catRandom}`);
+        cat_img.setAttribute('alt',`${catRandom}`);
         console.log("button pressed");
     })
 
@@ -40,17 +44,22 @@ function allButton(){
         })
     })
 }
-//this is GET method
-fetch("http://localhost:3000/catPage")
-    .then(function (response) {
-        response.json();
-        console.log(response);
+
+fetch("http://localhost:3000/catPage",{
+        method: "GET"
     })
-    .then(function (data){
-        //catArr = obj;
-        console.log(data);
-    })
-    .catch(function (error){
-        console.log("Something went wrong");
-        console.log(error);
-    })
+        .then(function (response){
+            return response.json();
+        })
+        .then(function(data){
+
+            data.forEach(function(cat){
+                catErr.push(cat.error);
+                catCon.push(cat.content);
+                catUrl.push(cat.url);
+            });
+        })
+        .catch(function (error){
+            console.log("Something went wrong");
+            console.log(error);
+        })
