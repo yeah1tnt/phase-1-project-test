@@ -19,6 +19,26 @@ function allButton(){
         cat_img.setAttribute('alt','101');
         console.log("button pressed");
     })
+
+    let btn_2 = document.getElementById("submit");
+    btn_2.addEventListener("click",function (e){
+        e.preventDefault();
+        const error = document.getElementById("input-error");
+        const description = document.getElementById("input-description");
+        const url = document.getElementById("input-url");
+        fetch("http:localhost:3000/catPage",{
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "error": error.value,
+                "content": description.value,
+                "url": url.value
+            })
+
+        })
+    })
 }
 //this is GET method
 fetch("http://localhost:3000/catPage")
@@ -33,18 +53,4 @@ fetch("http://localhost:3000/catPage")
     .catch(function (error){
         console.log("Something went wrong");
         console.log(error);
-    })
-
-//need to add event listener to POST.
-fetch("http://localhost:3000/catPage",{
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    }
-})
-    .then(function (response){
-        response.json();
-    })
-    .then(function (data){
-
     })

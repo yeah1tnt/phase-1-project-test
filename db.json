@@ -6,7 +6,40 @@
       "content": "continue"
     },
     {
+      "error": "101",
+      "content": "Switching Protocols",
+      "url": "",
       "id": 2
+    },
+    {
+      "error": "102",
+      "content": "Processing",
+      "url": "",
+      "id": 3
+    },
+    {
+      "error": "103",
+      "content": "Early Hints",
+      "url": "",
+      "id": 4
+    },
+    {
+      "error": "200",
+      "content": "OK",
+      "url": "",
+      "id": 5
+    },
+    {
+      "error": "201",
+      "content": "Created",
+      "url": "",
+      "id": 6
+    },
+    {
+      "error": "202",
+      "content": "Accepted",
+      "url": "",
+      "id": 7
     }
   ]
 }
