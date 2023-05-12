@@ -28,8 +28,17 @@ function allButton(){
         //Check if URL are present, if it is, then it will use that url picture
         if(catUrl[catIndex] === ""){
             cat_img.setAttribute("src",`https://http.cat/${catRandom}`);
+            document.getElementById("status").innerHTML = "This cat came from http.cat";
+        }else if(catRandom==="" || catCon[catIndex]==""){
+            console.log(`This cat is not defined correctly in JSON`);
+            catErr = catErr.splice(catRandom,1);
+            catCon = catCon.splice(catRandom,1);       //Remove the index from the array if it's not find and returned 404 cat
+            catUrl = catUrl.splice(catRandom,1);
+            cat_img.setAttribute("src",`https://http.cat/404`)
+            pageStatus.innerHTML = "Cat not defined correctly in JSON, removing index from array";
         }else{
             cat_img.setAttribute("src",catUrl[catIndex]);
+            document.getElementById("status").innerHTML = "This cat came from custom url";
         }
         cat_img.setAttribute('alt',`${catRandom}`);
     })
@@ -40,6 +49,8 @@ function allButton(){
         const error = document.getElementById("input-error");
         const description = document.getElementById("input-description");
         const url = document.getElementById("input-url");
+        //console.log(error);
+    if(error.value !=="" || description.value !==""){
         fetch("http:localhost:3000/catPage",{
             method: "POST",
             headers: {
@@ -52,6 +63,9 @@ function allButton(){
             })
 
         })
+    }else{
+        document.getElementById("status").innerHTML = "Error and description have to be inputted";
+    }
     })
 }
 
@@ -68,6 +82,8 @@ fetch("http://localhost:3000/catPage",{
                 catCon.push(cat.content);
                 catUrl.push(cat.url);
             });
+
+
         })
         .catch(function (error){
             console.log("Something went wrong");

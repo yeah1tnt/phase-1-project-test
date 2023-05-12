@@ -77,6 +77,12 @@
       "content": "Test",
       "url": "https://i.imgur.com/948lLm0.jpg",
       "id": 13
+    },
+    {
+      "error": "404",
+      "content": "Not Found",
+      "url": "",
+      "id": 14
     }
   ]
 }
