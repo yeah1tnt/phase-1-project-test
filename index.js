@@ -67,6 +67,13 @@ function allButton(){
         document.getElementById("status").innerHTML = "Error and description have to be inputted";
     }
     })
+
+
+    let btn_3 = document.getElementById("darkBtn");
+    btn_3.addEventListener("click",function(e){
+        e.preventDefault();
+        document.body.classList.toggle("dark-mode");
+    })
 }
 
 fetch("http://localhost:3000/catPage",{
