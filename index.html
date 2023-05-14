@@ -54,11 +54,14 @@
     <button id="darkBtn">Toggle light</button>
     <button id="btn">Randomized</button>
     <div id="catContent">
-        <p id="catError">
+        <p>
         <img id = "catPic" src="" alt="">
+        
+        <p id="hover" onmouseover="document.getElementById(`catErr`).style.display=`block`"
+        onmouseout="document.getElementById(`catErr`).style.display=`none`">Hover for Error<p id="catErr"></p></p>
+        
         <p id="hover" onmouseover="document.getElementById(`catAlt`).style.display=`block`"
-        onmouseout="document.getElementById(`catAlt`).style.display=`none`">Hover for description</p>
-        <p id="catAlt"></p>
+        onmouseout="document.getElementById(`catAlt`).style.display=`none`">Hover for description<p id="catAlt"></p></p>
     </p>
     </div>
 </body>

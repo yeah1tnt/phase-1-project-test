@@ -5,7 +5,7 @@ let catUrl =[];
 
 //Function for mouseover Instruction
 function mouseOver(e){
-    e.innerHTML = "Click on new cat to create new cat"+"<br>"+"Click on Randomized to pull cat" ;
+    e.innerHTML = "Enter error code and description before clicking new cat to add"+"<br>"+"Click on Randomized to pull cat" ;
 }
 function mouseOvernot(e){
     e.innerHTML = "Hover for instruction";
@@ -57,6 +57,7 @@ function allButton(){
             document.getElementById("status").innerHTML = "This cat came from custom url";
         }
         cat_img.setAttribute('alt',`${catRandom}`);
+        document.getElementById("catErr").innerHTML = catErr[catIndex];
         document.getElementById("catAlt").innerHTML = catCon[catIndex];
     })
 
