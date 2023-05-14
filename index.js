@@ -1,14 +1,17 @@
+//Global variables to pull data from JSON
 let catErr =[];
 let catCon =[];
 let catUrl =[];
+
+//Function for mouseover Instruction
 function mouseOver(e){
     e.innerHTML = "Click on new cat to create new cat"+"<br>"+"Click on Randomized to pull cat" ;
 }
-
 function mouseOvernot(e){
     e.innerHTML = "Hover for instruction";
 }
 
+//Function to check for duplicate input and block it from being POST
 function checkDuplicate(arr,input){
    for(let i = 0; i < arr.length; i++){
         if (arr[i] === input){
@@ -18,15 +21,19 @@ function checkDuplicate(arr,input){
    return false;
 }
 
+//DOMContentLoaded
 document.addEventListener("DOMContentLoaded", function () {
     allButton();
     })
 
-
+//addEventListener for buttons
 function allButton(){
     let btn_1 = document.getElementById("btn");
     let cat_img = document.getElementById("catPic")
     btn_1.addEventListener('click', function (e) {
+
+        //This generate random value from the array, catIndex find the index to be use to detect
+        //other value like description and url
         const catRandom = catErr[Math.floor(Math.random()*catErr.length)];
         const catIndex = catErr.findIndex(function (e){
             return e == catRandom;
@@ -61,7 +68,7 @@ function allButton(){
         const url = document.getElementById("input-url");
         //console.log(error);
 
-        
+        //Check for duplicate, invalid input from the form
     if((error.value !=="" && !checkDuplicate(catErr,error.value)) && (description.value !=="" && !checkDuplicate(catCon,description.value)) ){
         fetch("http:localhost:3000/catPage",{
             method: "POST",
@@ -93,6 +100,7 @@ function allButton(){
     })
 
 }
+//Pulling data from JSON and push items into global variables.
 fetch("http://localhost:3000/catPage",{
         method: "GET"
     })
