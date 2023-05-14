@@ -41,6 +41,7 @@ function allButton(){
             document.getElementById("status").innerHTML = "This cat came from custom url";
         }
         cat_img.setAttribute('alt',`${catRandom}`);
+        document.getElementById("catAlt").innerHTML = catCon[catIndex];
     })
 
     let btn_2 = document.getElementById("submit");
