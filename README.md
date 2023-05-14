@@ -9,7 +9,7 @@ A simple flashcard maker that has built-in function to pull picture from https:/
 
 ## Installation
 
-You will need to create your own db.json. Below is an example of what is db.json inside
+You will need to create your own db.json. Below is an example of what is inside
 
 ```json
 {

@@ -87,7 +87,7 @@ function allButton(){
         catCon.push(description.value);
         catUrl.push(url.value);
     }else{
-        document.getElementById("status").innerHTML = "Error and description have to be inputted OR entry alreaedy in the database";
+        document.getElementById("status").innerHTML = "Error and description have to be inputted OR entry already in the database";
     }
     //console.log(checkDuplicate(catErr,error.value));
     })
