@@ -2,17 +2,26 @@ let catErr =[];
 let catCon =[];
 let catUrl =[];
 function mouseOver(e){
-    e.innerHTML = "Click on the button for random cat picture";
+    e.innerHTML = "Click on new cat to create new cat"+"<br>"+"Click on Randomized to pull cat" ;
 }
 
 function mouseOvernot(e){
     e.innerHTML = "Hover for instruction";
 }
 
+function checkDuplicate(arr,input){
+   for(let i = 0; i < arr.length; i++){
+        if (arr[i] === input){
+            return true;
+        }
+   }
+   return false;
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     allButton();
-    
     })
+
 
 function allButton(){
     let btn_1 = document.getElementById("btn");
@@ -51,7 +60,9 @@ function allButton(){
         const description = document.getElementById("input-description");
         const url = document.getElementById("input-url");
         //console.log(error);
-    if(error.value !=="" || description.value !==""){
+
+        
+    if((error.value !=="" && !checkDuplicate(catErr,error.value)) && (description.value !=="" && !checkDuplicate(catCon,description.value)) ){
         fetch("http:localhost:3000/catPage",{
             method: "POST",
             headers: {
@@ -64,9 +75,14 @@ function allButton(){
             })
 
         })
+        // Add new POST value into the array
+        catErr.push(error.value);
+        catCon.push(description.value);
+        catUrl.push(url.value);
     }else{
-        document.getElementById("status").innerHTML = "Error and description have to be inputted";
+        document.getElementById("status").innerHTML = "Error and description have to be inputted OR entry alreaedy in the database";
     }
+    //console.log(checkDuplicate(catErr,error.value));
     })
 
 
@@ -75,8 +91,8 @@ function allButton(){
         e.preventDefault();
         document.body.classList.toggle("dark-mode");
     })
-}
 
+}
 fetch("http://localhost:3000/catPage",{
         method: "GET"
     })
@@ -84,7 +100,6 @@ fetch("http://localhost:3000/catPage",{
             return response.json();
         })
         .then(function(data){
-
             data.forEach(function(cat){
                 catErr.push(cat.error);
                 catCon.push(cat.content);
@@ -97,3 +112,4 @@ fetch("http://localhost:3000/catPage",{
             console.log("Something went wrong");
             console.log(error);
         })
+
