@@ -47,3 +47,7 @@ CSS Animation for the title from
 https://codepen.io/alvarotrigo/pen/PoKMyNO
 
 Cat image are being pulled from https://http.cat/ (only applied to error code available on the site)
+
+## License
+
+This work is published under [MIT](https://github.com/yeah1tnt/phase-1-project-test/blob/main/LICENSE) License
